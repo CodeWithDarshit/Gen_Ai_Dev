@@ -1,0 +1,94 @@
+**Generative AI (Gen AI)** is a type of Artificial Intelligence that can **create new content** instead of only analyzing existing data.
+
+It learns patterns from large amounts of data (text, images, audio, code, etc.) and then generates something new that resembles what it learned.
+
+Examples of content Gen AI can create:
+
+* Text → stories, emails, articles, answers
+* Images → artwork, logos, illustrations
+* Code → apps, websites, scripts
+* Audio → music, speech
+* Video → AI-generated videos
+
+Examples of Gen AI systems:
+
+* [OpenAI](https://openai.com?utm_source=chatgpt.com) ChatGPT
+* [Google Gemini](https://gemini.google?utm_source=chatgpt.com)
+* [Meta AI](https://ai.meta.com?utm_source=chatgpt.com)
+
+Basic flow:
+
+```text
+Training data
+      ↓
+AI learns patterns
+      ↓
+User gives prompt
+      ↓
+AI generates output
+```
+
+Example:
+
+Input:
+
+```text
+Write a story about a dragon and a king
+```
+
+Output:
+
+```text
+Once upon a time...
+```
+
+The AI did not copy an existing story word-for-word; it generated new text based on learned patterns.
+
+### Difference between AI and Gen AI
+
+| AI                  |       Generative AI |
+| ------------------- | ------------------: |
+| Detects or predicts | Creates new content |
+| Spam detection      |       Writes emails |
+| Face recognition    |    Generates images |
+| Fraud detection     |        Creates code |
+
+### Real-world uses of Gen AI
+
+* Chatbots
+* AI assistants
+* Content writing
+* Coding assistants
+* Image generation
+* Video creation
+* Customer support
+* AI automation
+* Education tools
+
+For your path (AI automation + development), Gen AI is often used like this:
+
+```text
+User request
+      ↓
+LLM (ChatGPT/Gemini)
+      ↓
+API
+      ↓
+Automation tool
+      ↓
+Action performed
+```
+
+Example:
+
+```text
+New email received
+      ↓
+AI reads email
+      ↓
+AI summarizes it
+      ↓
+Automatically sends a reply
+```
+
+Gen AI focuses on **creating**, while traditional AI often focuses on **classifying, predicting, or analyzing**.

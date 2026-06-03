@@ -1,0 +1,409 @@
+## LLM & Chat Models Foundations + Interview Questions
+
+---
+
+# Part 1: Foundations of LLMs
+
+## 1. What is an LLM?
+
+**LLM (Large Language Model)** is an AI model trained on a massive amount of text data to understand and generate human language.
+
+Purpose:
+
+* Answer questions
+* Write code
+* Summarize text
+* Translate languages
+* Generate content
+* Assist in conversations
+
+Examples:
+
+* [OpenAI](https://openai.com?utm_source=chatgpt.com) GPT
+* [Google Gemini](https://gemini.google?utm_source=chatgpt.com)
+* [Meta AI](https://ai.meta.com?utm_source=chatgpt.com) Llama
+
+---
+
+## 2. How does an LLM work?
+
+Basic pipeline:
+
+```text
+Large text data
+      ↓
+Tokenization
+      ↓
+Neural network training
+      ↓
+Pattern learning
+      ↓
+Predict next token
+      ↓
+Generated output
+```
+
+Example:
+
+Input:
+
+```text
+I love playing ___
+```
+
+The model predicts probabilities:
+
+```text
+football = 70%
+cricket = 20%
+games = 10%
+```
+
+It selects a token and continues generating.
+
+---
+
+## 3. Tokenization
+
+Tokenization converts text into smaller units called **tokens**.
+
+Example:
+
+Text:
+
+```text
+I love AI
+```
+
+Tokens:
+
+```text
+["I","love","AI"]
+```
+
+Sometimes words split further:
+
+```text
+unbelievable
+```
+
+↓
+
+```text
+["un","believ","able"]
+```
+
+Interview point:
+
+LLMs process tokens, not raw sentences.
+
+---
+
+## 4. Embeddings
+
+Embeddings convert text into numerical vectors representing meaning.
+
+Example:
+
+```text
+Dog → [0.43,0.67,0.11,...]
+
+Cat → [0.41,0.70,0.09,...]
+```
+
+Because dog and cat are semantically similar, their vectors are close.
+
+Uses:
+
+* Semantic search
+* RAG
+* Recommendations
+* Similarity matching
+
+---
+
+## 5. Transformer Architecture
+
+Modern LLMs use the Transformer architecture.
+
+Main components:
+
+1. Input embeddings
+2. Attention mechanism
+3. Feed-forward network
+4. Output prediction
+
+Purpose:
+
+* Understand relationships between words
+* Process long sequences efficiently
+
+---
+
+## 6. Attention Mechanism
+
+Attention allows the model to focus on important words.
+
+Sentence:
+
+```text
+Rohan put the laptop on the table because it was heavy.
+```
+
+"It" refers to **laptop**.
+
+Attention helps determine this relationship.
+
+---
+
+## 7. Context Window
+
+The context window is the amount of information the model can remember during a conversation.
+
+Example:
+
+```text
+User: My name is Darshit.
+
+User: What is my name?
+```
+
+If within the context window:
+
+```text
+Model: Darshit
+```
+
+---
+
+## 8. Temperature
+
+Controls output randomness.
+
+* Temperature = 0.1 → predictable
+* Temperature = 1 → creative
+* Temperature = 2 → highly random
+
+---
+
+## 9. Hallucination
+
+Hallucination happens when an LLM generates false information confidently.
+
+Example:
+
+User:
+
+```text
+Who invented the Moon computer?
+```
+
+Bad output:
+
+```text
+John Smith invented it in 1985.
+```
+
+If no such thing exists, this is hallucination.
+
+---
+
+## 10. Fine-tuning vs RAG
+
+| Fine-tuning            | RAG                      |
+| ---------------------- | ------------------------ |
+| Retrains model         | Uses external knowledge  |
+| Expensive              | Lower cost               |
+| Changes model behavior | Adds current information |
+| Slow updates           | Easier updates           |
+
+---
+
+# Part 2: Chat Models
+
+Chat models are specialized LLMs optimized for conversations.
+
+Structure:
+
+```text
+System Message
+      ↓
+User Message
+      ↓
+Assistant Response
+```
+
+Example:
+
+```text
+System:
+You are a coding assistant
+
+User:
+Write Java code for factorial
+
+Assistant:
+(code generated)
+```
+
+---
+
+## Components of chat models
+
+### System Message
+
+Controls behavior.
+
+Example:
+
+```text
+You are an expert Flutter developer.
+```
+
+---
+
+### User Message
+
+Actual request.
+
+Example:
+
+```text
+Create login UI.
+```
+
+---
+
+### Assistant Message
+
+Generated response.
+
+---
+
+## Chat model workflow
+
+```text
+User input
+      ↓
+Tokenization
+      ↓
+Embeddings
+      ↓
+Transformer
+      ↓
+Probability calculation
+      ↓
+Generated response
+```
+
+---
+
+# Interview Questions + Answers
+
+### Q1: What is an LLM?
+
+**Answer:**
+
+An LLM is a neural network trained on large amounts of text data to understand and generate human-like language.
+
+---
+
+### Q2: Why is it called "Large" Language Model?
+
+**Answer:**
+
+Because it is trained on huge datasets and contains a very large number of parameters.
+
+---
+
+### Q3: What are parameters?
+
+**Answer:**
+
+Parameters are internal learned values that store patterns and knowledge acquired during training.
+
+---
+
+### Q4: What is tokenization?
+
+**Answer:**
+
+Tokenization converts text into tokens that the model processes.
+
+---
+
+### Q5: What are embeddings?
+
+**Answer:**
+
+Embeddings are vector representations of text that capture semantic meaning.
+
+---
+
+### Q6: What is the Transformer architecture?
+
+**Answer:**
+
+A neural network architecture using attention mechanisms for efficient sequence processing.
+
+---
+
+### Q7: What is attention?
+
+**Answer:**
+
+Attention allows the model to focus on relevant parts of input.
+
+---
+
+### Q8: What is context length?
+
+**Answer:**
+
+Context length is the maximum amount of information the model can process at once.
+
+---
+
+### Q9: What is hallucination?
+
+**Answer:**
+
+Hallucination occurs when a model generates inaccurate or fabricated information.
+
+---
+
+### Q10: Difference between chat model and LLM?
+
+**Answer:**
+
+| LLM             | Chat Model                   |
+| --------------- | ---------------------------- |
+| Base model      | Conversation-optimized model |
+| Predicts text   | Handles dialogue             |
+| General purpose | Chat-focused                 |
+
+---
+
+### Q11: Why use RAG?
+
+**Answer:**
+
+RAG provides current and external knowledge without retraining the model.
+
+---
+
+### Q12: What is temperature?
+
+**Answer:**
+
+Temperature controls randomness and creativity in generated output.
+
+---
+
+### Q13: Explain a real project using LLM.
+
+**Answer:**
+
+> I built a PDF chatbot where documents are converted into embeddings and stored in a vector database. User queries retrieve relevant content which is passed to an LLM for generating answers.
+
+These are the kinds of questions commonly asked in junior GenAI and AI automation interviews.

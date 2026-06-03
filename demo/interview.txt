@@ -1,0 +1,249 @@
+For **Generative AI interview preparation**, here are common questions with concise but interview-ready answers.
+
+## 1. What is Generative AI?
+
+**Answer:**
+
+Generative AI is a branch of AI that creates new content such as text, images, code, audio, or video by learning patterns from existing data.
+
+---
+
+## 2. What is the difference between AI, Machine Learning, Deep Learning, and Generative AI?
+
+**Answer:**
+
+* **AI:** Broad field of creating intelligent systems.
+* **Machine Learning:** Systems learn from data.
+* **Deep Learning:** Uses neural networks with many layers.
+* **Generative AI:** Creates new content using learned patterns.
+
+---
+
+## 3. What is an LLM?
+
+**Answer:**
+
+LLM stands for Large Language Model. It is trained on large datasets to understand and generate human-like text.
+
+Examples:
+
+* [OpenAI](https://openai.com?utm_source=chatgpt.com) GPT
+* [Google Gemini](https://gemini.google?utm_source=chatgpt.com)
+* [Meta AI](https://ai.meta.com?utm_source=chatgpt.com) Llama
+
+---
+
+## 4. What is a prompt?
+
+**Answer:**
+
+A prompt is the instruction or input given to a generative AI model to produce a response.
+
+Example:
+
+```text
+Write a Java program to reverse a string.
+```
+
+---
+
+## 5. What is prompt engineering?
+
+**Answer:**
+
+Prompt engineering is designing prompts to obtain more accurate and useful outputs from AI models.
+
+---
+
+## 6. What is tokenization?
+
+**Answer:**
+
+Tokenization is the process of converting text into smaller pieces called tokens that AI models can process.
+
+Example:
+
+```text
+"I love AI"
+```
+
+May become:
+
+```text
+["I","love","AI"]
+```
+
+---
+
+## 7. What are tokens?
+
+**Answer:**
+
+Tokens are small units of text processed by language models. A token can be a word, part of a word, punctuation, or symbols.
+
+---
+
+## 8. What is a context window?
+
+**Answer:**
+
+The context window is the amount of information or tokens a model can consider at one time.
+
+---
+
+## 9. What is temperature in AI models?
+
+**Answer:**
+
+Temperature controls randomness.
+
+* Low temperature → predictable responses
+* High temperature → more creative responses
+
+Example:
+
+* 0.2 → factual
+* 0.9 → creative
+
+---
+
+## 10. What is hallucination in Generative AI?
+
+**Answer:**
+
+Hallucination happens when an AI model generates incorrect or fabricated information while presenting it as accurate.
+
+---
+
+## 11. What is an embedding?
+
+**Answer:**
+
+Embeddings are numerical vector representations of text or data that capture meaning and relationships.
+
+---
+
+## 12. What is a vector database?
+
+**Answer:**
+
+A vector database stores embeddings and enables similarity search.
+
+Examples:
+
+* [Pinecone](https://www.pinecone.io?utm_source=chatgpt.com)
+* [Weaviate](https://weaviate.io?utm_source=chatgpt.com)
+
+---
+
+## 13. What is RAG?
+
+**Answer:**
+
+RAG stands for Retrieval-Augmented Generation.
+
+It retrieves relevant information from external data sources before generating responses.
+
+Flow:
+
+```text
+User Question
+      ↓
+Retrieve data
+      ↓
+Send to LLM
+      ↓
+Generate answer
+```
+
+---
+
+## 14. Difference between Fine-tuning and RAG?
+
+| Fine-tuning            | RAG                    |
+| ---------------------- | ---------------------- |
+| Retrains model         | Uses external data     |
+| Expensive              | Lower cost             |
+| Changes model behavior | Adds current knowledge |
+
+---
+
+## 15. What is an AI Agent?
+
+**Answer:**
+
+An AI agent is a system that can observe, decide, and perform actions using tools and memory.
+
+Example:
+
+* Email automation
+* Scheduling meetings
+* Research assistants
+
+---
+
+## 16. What is the Transformer architecture?
+
+**Answer:**
+
+Transformer architecture is a deep learning architecture using attention mechanisms to process and generate sequences efficiently.
+
+---
+
+## 17. What is attention mechanism?
+
+**Answer:**
+
+Attention allows a model to focus on important parts of input instead of treating every word equally.
+
+---
+
+## 18. What is zero-shot prompting?
+
+**Answer:**
+
+The model performs a task without examples.
+
+Example:
+
+```text
+Translate "Hello" into French.
+```
+
+---
+
+## 19. What is one-shot prompting?
+
+**Answer:**
+
+The model receives one example before the actual task.
+
+---
+
+## 20. What is few-shot prompting?
+
+**Answer:**
+
+The model receives several examples before performing the task.
+
+---
+
+## Frequently asked practical question:
+
+**Q: Explain a Generative AI project you built.**
+
+**Sample answer:**
+
+> I developed a PDF chatbot using Python, LangChain, embeddings, and a vector database. Users upload PDFs, text is converted into embeddings and stored. When a user asks a question, relevant content is retrieved and sent to the language model to generate answers.
+
+---
+
+For freshers, interviewers often focus on:
+
+1. Gen AI basics
+2. Prompt engineering
+3. APIs
+4. RAG
+5. LangChain
+6. AI agents
+7. Projects you built
