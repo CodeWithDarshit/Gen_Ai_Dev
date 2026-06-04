@@ -1,0 +1,16 @@
+This project is powered by Google's Gemini AI model using the Gemini API. Gemini was chosen because it provides powerful multimodal and conversational AI capabilities, seamless integration with Python and LangChain, and a developer-friendly ecosystem for building modern AI applications.
+
+The project leverages Gemini for natural language understanding, intelligent response generation, and interactive user conversations. Gemini enables the application to deliver fast, accurate, and context-aware responses while maintaining a scalable and efficient architecture.
+
+Tech Stack:
+• Google Gemini API
+• Python
+• LangChain
+• Streamlit
+
+Why Gemini?
+• Advanced large language model (LLM) capabilities
+• Easy integration with Python applications
+• Strong support for AI chatbots, RAG systems, and AI agents
+• Reliable performance and modern AI features
+• Suitable for both learning and production-grade AI applications
