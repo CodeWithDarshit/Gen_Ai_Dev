@@ -1,0 +1,534 @@
+# LangChain Complete Guide (Theory → Small Project → Interview Questions)
+
+## What is LangChain?
+
+**LangChain** is an open-source framework used to build applications powered by Large Language Models (LLMs).
+
+It helps developers connect LLMs with:
+
+* Prompts
+* Memory
+* Documents
+* Databases
+* APIs
+* Tools
+* Agents
+
+Official website:
+
+<!-- * [LangChain](https://www.langchain.com?utm_source=chatgpt.com) -->
+
+Documentation:
+
+<!-- * [LangChain Docs](https://python.langchain.com?utm_source=chatgpt.com) -->
+
+---
+
+# Why was LangChain created?
+
+LLMs alone can answer questions, but real-world applications need more:
+
+Example:
+
+```text
+User Question
+      ↓
+LLM
+      ↓
+Answer
+```
+
+Problems:
+
+* No memory
+* Can't access PDFs
+* Can't search databases
+* Can't use tools
+* Can't call APIs
+
+LangChain solves these problems.
+
+---
+
+# LangChain Architecture
+
+```text
+User
+ ↓
+Prompt
+ ↓
+LLM
+ ↓
+Chain
+ ↓
+Memory
+ ↓
+Tools
+ ↓
+Output
+```
+
+---
+
+# Core Components
+
+## 1. LLM
+
+The AI model.
+
+Examples:
+
+* Gemini
+* GPT
+* Llama
+
+Example:
+
+```python
+llm.invoke("What is AI?")
+```
+
+---
+
+## 2. Prompt Template
+
+Creates dynamic prompts.
+
+Without template:
+
+```python
+"What is Python?"
+```
+
+With template:
+
+```python
+"What is {topic}?"
+```
+
+Input:
+
+```python
+topic="Python"
+```
+
+Output:
+
+```python
+What is Python?
+```
+
+---
+
+## 3. Output Parser
+
+Converts LLM output into a desired format.
+
+Example:
+
+```json
+{
+  "name":"Darshit",
+  "age":21
+}
+```
+
+---
+
+## 4. Chains
+
+Chains connect multiple steps.
+
+Example:
+
+```text
+Question
+ ↓
+Prompt
+ ↓
+LLM
+ ↓
+Output
+```
+
+---
+
+## 5. Memory
+
+Stores conversation history.
+
+Without Memory:
+
+```text
+User: My name is Darshit
+
+User: What is my name?
+
+AI: I don't know
+```
+
+With Memory:
+
+```text
+AI: Your name is Darshit
+```
+
+---
+
+## 6. Document Loaders
+
+Used to load files.
+
+Examples:
+
+* PDF
+* TXT
+* DOCX
+* CSV
+
+---
+
+## 7. Text Splitters
+
+Break large documents into chunks.
+
+Example:
+
+```text
+100 pages PDF
+      ↓
+Chunks
+      ↓
+Embeddings
+```
+
+---
+
+## 8. Embeddings
+
+Convert text into vectors.
+
+Example:
+
+```text
+Dog
+ ↓
+[0.25,0.78,0.33]
+```
+
+Used in:
+
+* Search
+* RAG
+* Similarity
+
+---
+
+## 9. Vector Database
+
+Stores embeddings.
+
+Popular options:
+
+<!-- * [Chroma](https://www.trychroma.com?utm_source=chatgpt.com)
+* [Pinecone](https://www.pinecone.io?utm_source=chatgpt.com)
+* [Weaviate](https://weaviate.io?utm_source=chatgpt.com) -->
+
+---
+
+## 10. Retrievers
+
+Retrieve relevant chunks.
+
+Example:
+
+```text
+Question
+ ↓
+Vector DB
+ ↓
+Relevant Data
+ ↓
+LLM
+```
+
+---
+
+## 11. Agents
+
+Agents can think and use tools.
+
+Example:
+
+```text
+Question
+ ↓
+Agent
+ ↓
+Google Search
+ ↓
+Calculator
+ ↓
+Answer
+```
+
+---
+
+# What is RAG?
+
+RAG = Retrieval Augmented Generation
+
+Flow:
+
+```text
+User Question
+       ↓
+Retriever
+       ↓
+Vector DB
+       ↓
+Relevant Chunks
+       ↓
+LLM
+       ↓
+Answer
+```
+
+Benefits:
+
+* More accurate
+* Uses your own documents
+* Reduces hallucinations
+
+---
+
+# Small Project 1: AI Q&A Bot
+
+Install:
+
+```bash
+pip install langchain
+pip install langchain-google-genai
+```
+
+Code:
+
+```python
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+llm = ChatGoogleGenerativeAI(
+    model="", ## api key
+    google_api_key="YOUR_API_KEY"
+)
+
+response = llm.invoke("What is LangChain?")
+
+print(response.content)
+```
+
+---
+
+# Small Project 2: PDF Chatbot
+
+Architecture:
+
+```text
+PDF
+ ↓
+Loader
+ ↓
+Text Splitter
+ ↓
+Embeddings
+ ↓
+Vector DB
+ ↓
+Retriever
+ ↓
+Gemini
+ ↓
+Answer
+```
+
+Skills learned:
+
+* Document processing
+* Embeddings
+* Vector databases
+* RAG
+
+---
+
+# Small Project 3: Resume Analyzer
+
+Flow:
+
+```text
+Resume PDF
+ ↓
+Extract Text
+ ↓
+LLM
+ ↓
+Skills Analysis
+ ↓
+Suggestions
+```
+
+---
+
+# LangChain Interview Questions
+
+## Q1. What is LangChain?
+
+**Answer:**
+
+LangChain is a framework for building LLM-powered applications by integrating language models with prompts, memory, tools, agents, and external data sources.
+
+---
+
+## Q2. Why do we need LangChain?
+
+**Answer:**
+
+LangChain simplifies building AI applications by providing reusable components for prompts, memory, document retrieval, agents, and workflows.
+
+---
+
+## Q3. What is a Chain?
+
+**Answer:**
+
+A Chain combines multiple operations into a workflow.
+
+Example:
+
+```text
+Prompt
+ ↓
+LLM
+ ↓
+Output
+```
+
+---
+
+## Q4. What is PromptTemplate?
+
+**Answer:**
+
+PromptTemplate allows dynamic prompt creation using variables.
+
+Example:
+
+```python
+"What is {topic}?"
+```
+
+---
+
+## Q5. What is Memory?
+
+**Answer:**
+
+Memory stores previous conversation context and enables multi-turn interactions.
+
+---
+
+## Q6. What are Embeddings?
+
+**Answer:**
+
+Embeddings are numerical vector representations of text that capture semantic meaning and enable similarity search.
+
+---
+
+## Q7. What is a Vector Database?
+
+**Answer:**
+
+A Vector Database stores embeddings and allows efficient similarity searches.
+
+Examples:
+
+* Chroma
+* Pinecone
+* Weaviate
+
+---
+
+## Q8. What is a Retriever?
+
+**Answer:**
+
+A Retriever fetches the most relevant information from a vector database for a given query.
+
+---
+
+## Q9. What is RAG?
+
+**Answer:**
+
+RAG (Retrieval-Augmented Generation) retrieves relevant external information and provides it to the LLM before generating an answer.
+
+---
+
+## Q10. Difference between Fine-Tuning and RAG?
+
+| Fine-Tuning           | RAG                     |
+| --------------------- | ----------------------- |
+| Retrains model        | Uses external documents |
+| Expensive             | Cost-effective          |
+| Hard to update        | Easy to update          |
+| Changes model weights | Keeps model unchanged   |
+
+---
+
+## Q11. What are Agents?
+
+**Answer:**
+
+Agents are AI systems that can decide which tools to use and in what order to accomplish a task.
+
+---
+
+## Q12. What are Tools in LangChain?
+
+**Answer:**
+
+Tools are external capabilities available to an agent, such as search APIs, calculators, databases, or custom functions.
+
+---
+
+## Q13. Explain a LangChain project.
+
+**Answer:**
+
+> I built a PDF chatbot using LangChain. Documents were loaded and split into chunks, converted into embeddings, stored in a vector database, and retrieved using RAG. Relevant information was passed to Gemini to generate answers based on the uploaded PDF.
+
+---
+
+## Q14. What is the biggest advantage of LangChain?
+
+**Answer:**
+
+> It provides a modular architecture that makes it easier to build production-ready AI applications with memory, retrieval, agents, and tool integration.
+
+---
+
+## Interview Tip
+
+For GenAI internships and junior AI developer roles, the most important LangChain topics are:
+
+1. LLMs
+2. PromptTemplate
+3. Chains
+4. Memory
+5. Embeddings
+6. Vector Databases
+7. Retrievers
+8. RAG
+9. Agents
+10. One project (PDF Chatbot or Resume Analyzer)
+
+Mastering those topics is usually enough to discuss LangChain confidently in interviews and explain practical GenAI projects.
