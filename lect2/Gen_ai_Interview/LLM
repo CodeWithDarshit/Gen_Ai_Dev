@@ -1,0 +1,315 @@
+# How LLM (Large Language Model) Works — With a Small Practical Example
+
+An **LLM (Large Language Model)** is an AI model trained on a massive amount of text (books, websites, articles, code, etc.). It **doesn't memorize answers** in the traditional sense. Instead, it learns **patterns between words (tokens)** and predicts what should come next.
+
+---
+
+# Overall Flow
+
+```text
+User
+  │
+  ▼
+Prompt
+  │
+  ▼
+Tokenization
+  │
+  ▼
+Embedding
+  │
+  ▼
+Transformer Layers
+  │
+  ▼
+Next Token Prediction
+  │
+  ▼
+Response
+```
+
+---
+
+# Step 1: User Prompt
+
+Suppose the user asks:
+
+```text
+What is Java?
+```
+
+The LLM first receives this text.
+
+---
+
+# Step 2: Tokenization
+
+The sentence is broken into **tokens**.
+
+Example:
+
+```text
+"What is Java?"
+
+↓
+
+["What", "is", "Java", "?"]
+```
+
+A token may be:
+
+* a word
+* part of a word
+* punctuation
+* a number
+
+The model works with **tokens**, not raw text.
+
+---
+
+# Step 3: Convert Tokens to Numbers (Embeddings)
+
+Computers don't understand words directly.
+
+The tokens are converted into vectors (lists of numbers).
+
+Example:
+
+```text
+"What"
+
+↓
+
+[0.21, -0.34, 0.82, 0.56, ...]
+```
+
+```text
+"Java"
+
+↓
+
+[-0.75, 0.44, 0.13, ...]
+```
+
+These vectors capture the meaning and relationships between words.
+
+---
+
+# Step 4: Transformer Understands Context
+
+The Transformer processes all tokens together.
+
+It learns that:
+
+```text
+"What is Java?"
+```
+
+is asking for a **definition**, not a joke or a recipe.
+
+It also understands that **Java** refers to the programming language in this context.
+
+---
+
+# Step 5: Predict the Next Token
+
+The model predicts one token at a time.
+
+```text
+Java
+
+↓
+
+is
+```
+
+Then:
+
+```text
+Java is
+
+↓
+
+a
+```
+
+Then:
+
+```text
+Java is a
+
+↓
+
+programming
+```
+
+Then:
+
+```text
+language
+```
+
+This continues until the response is complete.
+
+---
+
+# Final Response
+
+```text
+Java is a high-level, object-oriented programming language.
+```
+
+---
+
+# Small Practical Example in Python
+
+This example uses the Google Gemini API to show how your application sends a prompt to an LLM and receives a response.
+
+```python
+from google import genai
+
+client = genai.Client(api_key="YOUR_API_KEY")
+
+response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents="What is Java?"
+)
+
+print(response.text)
+```
+
+### What happens behind the scenes?
+
+```text
+Your Python Code
+        │
+        ▼
+Google Gemini API
+        │
+        ▼
+LLM
+        │
+Tokenization
+        │
+Embedding
+        │
+Transformer
+        │
+Token Prediction
+        │
+        ▼
+Generated Answer
+        │
+        ▼
+Python Program
+```
+
+---
+
+# Another Example
+
+Prompt:
+
+```text
+Complete this sentence:
+
+India is famous for
+```
+
+The model predicts tokens like:
+
+```text
+India
+↓
+
+is
+
+↓
+
+famous
+
+↓
+
+for
+
+↓
+
+its
+
+↓
+
+rich
+
+↓
+
+culture
+
+↓
+
+and
+
+↓
+
+history.
+```
+
+Each word is generated based on the previous context.
+
+---
+
+# A Simple Analogy
+
+Imagine your phone keyboard suggesting the next word.
+
+If you type:
+
+```text
+Happy
+```
+
+it may suggest:
+
+```text
+Birthday
+```
+
+If you type:
+
+```text
+Good
+```
+
+it may suggest:
+
+```text
+Morning
+```
+
+An LLM does something similar, but with **billions of learned patterns** and much more context. Instead of predicting only one next word for a short message, it predicts sequences of tokens while considering your entire prompt and conversation.
+
+---
+
+# Key Terms
+
+| Term         | Meaning                                                            |
+| ------------ | ------------------------------------------------------------------ |
+| Prompt       | The user's input to the model                                      |
+| Token        | A word, part of a word, or punctuation processed by the model      |
+| Tokenization | Breaking text into tokens                                          |
+| Embedding    | Converting tokens into numerical vectors                           |
+| Transformer  | Neural network architecture that understands context               |
+| Attention    | Mechanism that lets the model focus on relevant parts of the input |
+| Inference    | The process of generating a response                               |
+| LLM          | Large Language Model                                               |
+
+---
+
+## Interview Question
+
+**Q: How does an LLM work?**
+
+**Sample Answer:**
+
+> An LLM receives a user's prompt, breaks it into tokens through tokenization, converts those tokens into embeddings, and processes them with a Transformer neural network that uses attention to understand context. It then predicts the most likely next token repeatedly until a complete response is generated. This process is called inference.
+
+This explanation is appropriate for technical interviews and provides the conceptual foundation needed before learning topics such as attention mechanisms, transformers, embeddings, and Retrieval-Augmented Generation (RAG).
