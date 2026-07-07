@@ -1,0 +1,589 @@
+# How Large Language Models (LLMs) Work
+
+## Complete Guide: Basic → Advanced → Interview → Real Projects
+
+If you want to become a **GenAI Engineer**, **AI Engineer**, or prepare for interviews at companies like Google, Microsoft, or startups, understanding how an LLM works is essential.
+
+---
+
+# 1. What is an LLM?
+
+**LLM (Large Language Model)** is an AI model trained on massive amounts of text to understand and generate human language.
+
+Examples:
+
+* [Google Gemini](https://gemini.google.com?utm_source=chatgpt.com)
+* [OpenAI ChatGPT](https://chatgpt.com?utm_source=chatgpt.com)
+* [Anthropic Claude](https://claude.ai?utm_source=chatgpt.com)
+* [Meta Llama](https://www.llama.com?utm_source=chatgpt.com)
+
+LLMs can:
+
+* Answer questions
+* Write code
+* Translate languages
+* Summarize documents
+* Generate emails
+* Solve programming problems
+
+---
+
+# 2. High-Level Workflow
+
+```text
+Internet
+Books
+Wikipedia
+GitHub
+Research Papers
+Code
+      │
+      ▼
+ Training Data
+      │
+      ▼
+Tokenizer
+      │
+      ▼
+Tokens
+      │
+      ▼
+Transformer Model
+      │
+      ▼
+Predict Next Token
+      │
+      ▼
+Final Answer
+```
+
+---
+
+# 3. Step 1 – Collect Data
+
+An LLM is trained on a huge dataset, such as:
+
+```text
+Books
+Articles
+Wikipedia
+Programming Code
+Scientific Papers
+Web Pages
+Documentation
+```
+
+Example:
+
+```text
+Python is a programming language.
+```
+
+This is raw training data.
+
+---
+
+# 4. Step 2 – Tokenization
+
+The model doesn't read words directly.
+
+It converts text into **tokens**.
+
+Example:
+
+Sentence:
+
+```text
+I love Python.
+```
+
+Possible tokens:
+
+```text
+"I"
+
+"love"
+
+"Python"
+
+"."
+```
+
+Another example:
+
+```text
+Artificial Intelligence
+```
+
+might become
+
+```text
+Artificial
+
+Intelligence
+```
+
+or even smaller pieces depending on the tokenizer.
+
+---
+
+# 5. Step 3 – Embeddings
+
+Tokens are converted into numbers.
+
+Example:
+
+```text
+Python
+```
+
+↓
+
+```text
+[0.12, -0.44, 0.91, ...]
+```
+
+These numerical vectors are called **embeddings**.
+
+Embeddings capture semantic meaning.
+
+Example:
+
+```text
+King
+Queen
+Prince
+Princess
+```
+
+Their vectors are close together because their meanings are related.
+
+---
+
+# 6. Step 4 – Transformer
+
+This is the heart of every modern LLM.
+
+```text
+Input Tokens
+      │
+      ▼
+Embeddings
+      │
+      ▼
+Transformer Layers
+      │
+      ▼
+Output
+```
+
+The transformer learns relationships between words.
+
+Example:
+
+```text
+Paris is the capital of France.
+```
+
+The model learns that:
+
+```text
+Paris ↔ France
+capital ↔ country
+```
+
+---
+
+# 7. Step 5 – Attention Mechanism
+
+Attention helps the model decide which words are most important.
+
+Sentence:
+
+```text
+The cat sat on the mat because it was soft.
+```
+
+"It" refers to:
+
+```text
+the mat
+```
+
+The attention mechanism learns this relationship.
+
+---
+
+# 8. Step 6 – Next Token Prediction
+
+LLMs generate text **one token at a time**.
+
+Example:
+
+Input:
+
+```text
+The capital of France is
+```
+
+Model predicts:
+
+```text
+Paris
+```
+
+Then:
+
+```text
+Paris.
+```
+
+Then:
+
+```text
+Paris. It
+```
+
+And so on.
+
+---
+
+# 9. Step 7 – Output
+
+Generated tokens become:
+
+```text
+The capital of France is Paris.
+```
+
+---
+
+# Complete Pipeline
+
+```text
+User Question
+      │
+      ▼
+Tokenizer
+      │
+      ▼
+Tokens
+      │
+      ▼
+Embeddings
+      │
+      ▼
+Transformer
+      │
+      ▼
+Attention
+      │
+      ▼
+Next Token Prediction
+      │
+      ▼
+Generated Response
+```
+
+---
+
+# Why are they called "Large"?
+
+Because they contain billions of parameters.
+
+Examples:
+
+```text
+1 Billion Parameters
+
+7 Billion Parameters
+
+70 Billion Parameters
+
+100+ Billion Parameters
+```
+
+More parameters generally allow the model to learn more complex patterns, though efficiency and training quality also matter.
+
+---
+
+# Training Phases
+
+## 1. Pretraining
+
+The model learns language from massive datasets.
+
+Input:
+
+```text
+The sun rises in the
+```
+
+Target:
+
+```text
+east
+```
+
+The model repeatedly predicts missing or next tokens.
+
+---
+
+## 2. Fine-Tuning
+
+The model specializes.
+
+Examples:
+
+```text
+Medical AI
+
+Legal AI
+
+Coding AI
+
+Finance AI
+```
+
+---
+
+## 3. Alignment
+
+Human feedback improves:
+
+* Helpfulness
+* Safety
+* Accuracy
+
+---
+
+# Temperature
+
+Controls randomness.
+
+Temperature = 0
+
+```text
+More deterministic
+```
+
+Temperature = 1
+
+```text
+More creative
+```
+
+---
+
+# Context Window
+
+This is how much text the model can consider at one time.
+
+Example:
+
+```text
+Chat History
+
++
+
+User Question
+
++
+
+Document
+
+↓
+
+LLM
+```
+
+If the conversation becomes longer than the context window, older content may need to be removed or summarized.
+
+---
+
+# Why LLMs Make Mistakes
+
+Reasons include:
+
+* Limited or outdated knowledge (depending on the model)
+* Ambiguous prompts
+* Incorrect assumptions
+* Lack of required context
+* Hallucinations (confidently generating incorrect information)
+
+---
+
+# Small Practical Project
+
+## AI Q&A Bot
+
+```python
+from langchain_google_genai import ChatGoogleGenerativeAI
+
+llm = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash"
+)
+
+question = input("Question: ")
+
+response = llm.invoke(question)
+
+print(response.content)
+```
+
+Flow:
+
+```text
+User
+ ↓
+Question
+ ↓
+Tokenizer
+ ↓
+Transformer
+ ↓
+Next Token Prediction
+ ↓
+Answer
+```
+
+---
+
+# Real Industry Architecture
+
+```text
+User
+   │
+   ▼
+Frontend (Streamlit / React)
+   │
+   ▼
+Backend (FastAPI)
+   │
+   ▼
+LangChain
+   │
+   ▼
+Prompt Template
+   │
+   ▼
+LLM (Gemini / GPT / Claude)
+   │
+   ▼
+Output Parser
+   │
+   ▼
+Frontend
+```
+
+---
+
+# Interview Questions
+
+### Q1. What is an LLM?
+
+**Answer:**
+
+An LLM is a neural network trained on massive text datasets to understand and generate human language by predicting the next token in a sequence.
+
+---
+
+### Q2. Why is tokenization important?
+
+**Answer:**
+
+Tokenization converts raw text into smaller units (tokens) that the model can process efficiently.
+
+---
+
+### Q3. What are embeddings?
+
+**Answer:**
+
+Embeddings are dense numerical vectors that represent the semantic meaning of tokens, allowing the model to compare and understand relationships between words.
+
+---
+
+### Q4. What is a Transformer?
+
+**Answer:**
+
+A Transformer is the neural network architecture used by modern LLMs. It processes tokens in parallel and uses attention mechanisms to understand relationships across the input.
+
+---
+
+### Q5. What is attention?
+
+**Answer:**
+
+Attention enables the model to focus on the most relevant parts of the input when generating each new token.
+
+---
+
+### Q6. Why do LLMs generate text token by token?
+
+**Answer:**
+
+LLMs are trained to predict the next most likely token based on all previous tokens. Repeating this process generates complete sentences.
+
+---
+
+### Q7. What is a context window?
+
+**Answer:**
+
+The context window is the maximum amount of text (prompt, conversation history, documents, etc.) that the model can consider during a single request.
+
+---
+
+### Q8. What is fine-tuning?
+
+**Answer:**
+
+Fine-tuning is the process of adapting a pretrained model to a specific domain or task using additional training data.
+
+---
+
+### Q9. What is prompt engineering?
+
+**Answer:**
+
+Prompt engineering is the practice of designing prompts that help the model produce more accurate, relevant, and structured responses.
+
+---
+
+### Q10. Explain the complete LLM pipeline.
+
+**Answer:**
+
+> The user input is tokenized, converted into embeddings, processed by transformer layers using attention mechanisms, and the model predicts the next token repeatedly until it generates the complete response.
+
+---
+
+# Learning Roadmap
+
+```text
+Python
+      ↓
+Machine Learning Basics
+      ↓
+Deep Learning
+      ↓
+Neural Networks
+      ↓
+Transformers
+      ↓
+LLMs
+      ↓
+Prompt Engineering
+      ↓
+LangChain
+      ↓
+RAG
+      ↓
+AI Agents
+      ↓
+Production Deployment
+```
+
+This progression will give you a solid foundation for building modern Generative AI applications and understanding how today's language models operate from first principles to production systems.
