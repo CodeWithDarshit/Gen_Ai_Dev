@@ -1,0 +1,287 @@
+# What is a Token in LLMs?
+
+A **token** is the smallest unit of text that an LLM processes. Models do **not** read text character by character or word by word—they read **tokens**.
+
+Think of it like this:
+
+```text
+Sentence
+   ↓
+Words
+   ↓
+Tokens
+```
+
+---
+
+# Example 1
+
+Text:
+
+```text
+Hello World
+```
+
+Possible tokens:
+
+```text
+Hello
+World
+```
+
+≈ 2 tokens
+
+---
+
+# Example 2
+
+Text:
+
+```text
+What is Artificial Intelligence?
+```
+
+Possible tokens:
+
+```text
+What
+is
+Artificial
+Intelligence
+?
+```
+
+≈ 5 tokens
+
+---
+
+# Example 3
+
+Numbers
+
+```text
+2026
+```
+
+May be split into:
+
+```text
+202
+6
+```
+
+or another tokenization depending on the model.
+
+---
+
+# Example 4
+
+Python Code
+
+```python
+print("Hello")
+```
+
+May be tokenized like:
+
+```text
+print
+(
+"
+Hello
+"
+)
+```
+
+---
+
+# Why are Tokens Important?
+
+LLMs charge and limit usage based on **tokens**, not pages or words.
+
+```text
+Input Tokens
+      +
+Output Tokens
+      =
+Total Tokens
+```
+
+Example:
+
+```text
+User Prompt
+500 tokens
+
+AI Response
+700 tokens
+
+Total
+1200 tokens
+```
+
+---
+
+# Context Window
+
+Every model has a maximum number of tokens it can process in one request.
+
+```text
+Conversation
+        ↓
+Token Count
+        ↓
+LLM
+```
+
+If the conversation exceeds the model's context window, older content may need to be removed or summarized.
+
+---
+
+# Chatbot Example
+
+Conversation:
+
+```text
+User: Hi
+
+AI: Hello
+
+User: My name is Darshit
+
+AI: Nice to meet you
+
+User: What is my name?
+```
+
+Every message contributes to the total token count.
+
+---
+
+# Why Memory Increases Tokens
+
+Without memory:
+
+```text
+User Question
+      ↓
+20 Tokens
+```
+
+With memory:
+
+```text
+Chat History
+     +
+Question
+     ↓
+300 Tokens
+```
+
+Longer history means more input tokens, which can increase cost and latency.
+
+---
+
+# Reducing Token Usage
+
+Keep only recent messages.
+
+Instead of:
+
+```python
+history = messages
+```
+
+Use:
+
+```python
+history = messages[-6:]
+```
+
+This sends only the last six messages.
+
+---
+
+# Approximate Token Estimates
+
+| Text               | Approximate Tokens |
+| ------------------ | -----------------: |
+| Hello              |                  1 |
+| Hello World        |                  2 |
+| One paragraph      |             80–150 |
+| One page           |            400–700 |
+| 1000 English words |      ~1,300 tokens |
+| Small Python file  |            300–800 |
+
+These are rough estimates and vary by model.
+
+---
+
+# Interview Questions
+
+### Q1. What is a token?
+
+**Answer:**
+
+A token is the basic unit of text processed by a language model. A token may represent a whole word, part of a word, punctuation, or other text fragments.
+
+---
+
+### Q2. Why are tokens important?
+
+**Answer:**
+
+Tokens determine how much text a model can process, affect API cost, and influence response latency.
+
+---
+
+### Q3. What is a context window?
+
+**Answer:**
+
+A context window is the maximum number of input and output tokens a model can handle in a single request.
+
+---
+
+### Q4. How can token usage be reduced?
+
+**Answer:**
+
+* Keep only recent conversation history.
+* Summarize older messages.
+* Use concise prompts.
+* Avoid sending unnecessary text.
+
+---
+
+### Q5. Why is token management important in AI chatbots?
+
+**Answer:**
+
+Efficient token management helps reduce API costs, improve response speed, and ensures requests stay within the model's context window.
+
+---
+
+# Real-World Example
+
+Imagine a customer support chatbot:
+
+```text
+Customer
+     ↓
+100 Tokens
+
+Chat History
+     ↓
+800 Tokens
+
+LLM Response
+     ↓
+200 Tokens
+
+Total
+     ↓
+1100 Tokens
+```
+
+As conversations grow, token usage also grows. That's why production chatbots often summarize old messages or retain only the most relevant context instead of sending the entire conversation every time.
