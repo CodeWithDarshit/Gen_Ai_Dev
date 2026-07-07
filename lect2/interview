@@ -1,0 +1,191 @@
+# What is Generative AI?
+
+**Generative AI (Gen AI)** is a branch of **Artificial Intelligence (AI)** that can **create new content** instead of only analyzing or classifying existing data.
+
+The generated content can include:
+
+* 📝 Text
+* 💻 Code
+* 🖼️ Images
+* 🎵 Music
+* 🎥 Videos
+* 🎙️ Speech
+* 📊 Reports
+* 📧 Emails
+
+Unlike traditional AI, which mainly predicts or classifies, Generative AI learns patterns from large datasets and produces new, original outputs based on a user's prompt.
+
+---
+
+## Simple Definition
+
+> **Generative AI is an AI system that learns from existing data and generates new content in response to user instructions (prompts).**
+
+---
+
+## Real-Life Examples
+
+| Input (Prompt)                             | Output                 |
+| ------------------------------------------ | ---------------------- |
+| "Write a Python program for a calculator." | Python code            |
+| "Create a logo for a coffee shop."         | AI-generated logo      |
+| "Summarize this PDF."                      | Short summary          |
+| "Translate English to Hindi."              | Hindi translation      |
+| "Generate interview questions."            | List of questions      |
+| "Create a travel itinerary."               | Day-by-day travel plan |
+
+---
+
+## Examples of Generative AI Models
+
+* OpenAI **GPT** models (used in ChatGPT)
+* Google **Gemini**
+* Anthropic **Claude**
+* Meta **Llama**
+* Mistral AI **Mistral**
+
+---
+
+## How Does Generative AI Work?
+
+```text
+Training Data
+      │
+      ▼
+AI learns patterns
+      │
+      ▼
+User enters a prompt
+      │
+      ▼
+Model understands the prompt
+      │
+      ▼
+Generates a new response
+```
+
+Example:
+
+```text
+Prompt:
+Write a Java program to reverse an array.
+
+↓
+
+AI understands Java syntax and the request.
+
+↓
+
+Output:
+A complete Java program to reverse an array.
+```
+
+---
+
+## Components of Generative AI
+
+1. **Data** – Large collections of text, images, code, and other information used for training.
+2. **Model** – A neural network (often based on the Transformer architecture) that learns patterns.
+3. **Prompt** – The instruction or question provided by the user.
+4. **Inference** – The process of generating a response from the trained model.
+
+---
+
+## Traditional AI vs Generative AI
+
+| Traditional AI    | Generative AI                      |
+| ----------------- | ---------------------------------- |
+| Classifies data   | Creates new content                |
+| Predicts outcomes | Generates text, code, images, etc. |
+| Spam detection    | Writes emails                      |
+| Fraud detection   | Creates reports                    |
+| Image recognition | Generates images                   |
+
+---
+
+## Applications
+
+* AI Chatbots
+* Code generation
+* Customer support
+* Content writing
+* Education
+* Healthcare assistance
+* Legal document drafting
+* Software development
+* Research assistance
+* Marketing
+
+---
+
+## Advantages
+
+* Saves time
+* Automates repetitive work
+* Increases productivity
+* Generates ideas quickly
+* Assists with coding and debugging
+* Supports multiple languages
+* Available 24/7
+
+---
+
+## Limitations
+
+* Can produce incorrect information ("hallucinations")
+* May reflect biases present in training data
+* Depends on the quality of the prompt
+* Can make reasoning mistakes on complex tasks
+* Requires human review for important decisions
+
+---
+
+## Popular Programming Languages
+
+* Python ⭐ (most widely used)
+* JavaScript
+* Java
+* C#
+* Go
+
+---
+
+## Example Using the Gemini API (Python)
+
+```python
+from google import genai
+
+client = genai.Client(api_key="YOUR_API_KEY")
+
+response = client.models.generate_content(
+    model="gemini-2.5-flash",
+    contents="Explain Artificial Intelligence"
+)
+
+print(response.text)
+```
+
+---
+
+## Interview Questions
+
+1. What is Generative AI?
+2. How is Generative AI different from traditional AI?
+3. What is a prompt?
+4. What is an LLM?
+5. What is inference?
+6. What are some applications of Generative AI?
+7. What are the limitations of Generative AI?
+8. What is a Transformer model?
+9. What is tokenization?
+10. Why is Python commonly used for Generative AI?
+
+### Interview Answer (Example)
+
+**Q: What is Generative AI?**
+
+**Answer:**
+
+> Generative AI is a branch of Artificial Intelligence that creates new content—such as text, images, code, audio, and video—based on patterns learned from large datasets. Modern Generative AI systems typically use large language models or other deep learning models to understand user prompts and generate relevant, human-like responses. It is widely used in chatbots, coding assistants, content creation, and business automation.
+
+This definition is suitable for technical interviews and provides a solid foundation for learning more advanced topics like LLMs, prompt engineering, RAG, and AI agents.
